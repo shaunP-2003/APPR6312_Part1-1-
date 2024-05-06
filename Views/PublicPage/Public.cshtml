@@ -1,0 +1,106 @@
+﻿@model Tuple<List<APPR6312_Part1_1_.Models.Views.DiastersViewMonetrayM>, List<APPR6312_Part1_1_.Models.Views.DisasterViewM>>
+
+
+@{
+}
+<head>
+
+    <style>
+        /* Set the text color to white for the table and headers */
+        table.table {
+            color: white;
+        }
+
+            /* Set the text color to white for the table body */
+            table.table tbody {
+                color: white;
+            }
+    </style>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/APPR6312_Part1_1_.styles.css" asp-append-version="true" />
+
+</head>
+<h1 class="text-center" style="margin-top:80px">  Disaster Alleviation Foundation </h1>
+<h3 class="text-center" style="margin-top:80px"> To Donate Please Login</h3>
+<h2 class="text-center" style="margin-top:80px" style="color: whitesmoke">Current Active Disasters With Allocated Goods</h2>
+<br />
+<br />
+<table class="table table-striped-columns">
+    <thead>
+        <tr>
+            <th>Disaster Name</th>
+            <th>Description</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Location</th>
+            <th>Aid Type</th>
+            <th>Allocated Goods</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var disaster in Model.Item2)
+        {
+            <tr>
+                <td>@disaster.DisasterName</td>
+                <td>@disaster.DisasterDescription</td>
+                <td>@disaster.StartDate.ToShortDateString()</td>
+                <td>@disaster.EndDate.ToShortDateString()</td>
+                <td>@disaster.Location</td>
+                <td>@disaster.AidType</td>
+                 <td>@disaster.goodsCategory</td>
+            </tr>
+        }
+        <tr>
+            <td></td>
+            <td>
+                <p style="font-weight:bold">
+                Total Goods Donations Received:
+                 @ViewData["totalGoodsDono"]
+                 </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 class="text-center" style="margin-top:50px; color: whitesmoke">Current Active Disasters With Allocated Money</h2>
+
+<!-- Display the table for disasters with allocated goods -->
+<table class="table">
+    <!-- Table headers including the goods category -->
+    <thead>
+        <tr>
+            <th>Disaster Name</th>
+            <th>Description</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Location</th>
+            <th>Aid Type</th>
+            <th>Allocated Monetary</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var allocation in Model.Item1) // Item2 is the list including the allocated goods
+        {
+            <tr>
+                <td>@allocation.DisasterName</td>
+                <td>@allocation.DisasterDescription</td>
+                <td>@allocation.StartDate.ToShortDateString()</td>
+                <td>@allocation.EndDate.ToShortDateString()</td>
+                <td>@allocation.Location</td>
+                <td>@allocation.AidType</td>
+                <td>@allocation.Amount</td>
+            </tr>
+        }
+        <tr>
+            <td></td>
+            <td>
+                <p style="font-weight:bold">
+                Total Monetary Donations:
+                R @ViewData["availableMoney"]
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>

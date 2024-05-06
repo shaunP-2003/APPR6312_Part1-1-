@@ -1,0 +1,68 @@
+﻿@model APPR6312_Part1_1_.Models.Views.DisasterViewM
+
+<head>
+
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/APPR6312_Part1_1_.styles.css" asp-append-version="true" />
+    <style>
+        /* Custom orange button */
+        .btn-orange {
+            background-color: #FFA500; /* This is a shade of orange */
+            color: #fff; /* Text color (white) */
+            border-color: #FFA500; /* Border color */
+        }
+
+            /* Hover state for the button */
+            .btn-orange:hover {
+                background-color: #FF8C00; /* A slightly darker shade on hover */
+                border-color: #FF8C00;
+            }
+
+    </style>
+
+</head>
+<h2 class="text-center style="margin-top:80px"> Add Your Disaster</h2>
+<br />
+<br />
+<form method="post" action="AddDisaster">
+    <div class="form-group">
+        <label for="DisasterName">Disaster Name:</label>
+        <input type="text" class="form-control" id="DisasterName" asp-for="DisasterName" required>
+    </div>
+
+    <div class="form-group">
+        <label for="DisasterDescription">Disaster Description:</label>
+        <textarea class="form-control" id="DisasterDescription" asp-for="DisasterDescription" rows="4" required></textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="StartDate">Start Date:</label>
+        <input type="date" class="form-control" id="StartDate" asp-for="StartDate" required>
+    </div>
+
+    <div class="form-group">
+        <label for="EndDate">End Date:</label>
+        <input type="date" class="form-control" id="EndDate" asp-for="EndDate" required>
+    </div>
+
+    <div class="form-group">
+        <label for="Location">Location:</label>
+        <input type="text" class="form-control" id="Location" asp-for="Location" required>
+    </div>
+    <!-- Goods Category -->
+    <div class="form-group">
+        <label for="aidType">Aid Types:</label>
+        <select class="form-control" id="aid_types" asp-for="AidType" required>
+            <option value="Water Provision"> Water Provision</option>
+            <option value="Clothes">Clothes</option>
+            <option value="Foods">Foods</option>
+
+
+        </select>
+    </div>
+    <br />
+    <!-- Submit Button -->
+    <button type="submit" class="btn btn-orange">Submit</button>
+</form>

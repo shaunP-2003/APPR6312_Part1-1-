@@ -1,0 +1,74 @@
+﻿@model APPR6312_Part1_1_.Models.Views.InventoryView
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] DAF</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/APPR6312_Part1_1_.styles.css" asp-append-version="true" />
+    <style>
+        .custom-navbar {
+            background-color: orange;
+        }
+
+            .custom-navbar .navbar-nav .nav-link {
+                color: whitesmoke !important;
+            }
+    </style>
+</head>
+<body>
+   <h2 class="text-center style="margin-top:80px"> Add Your Goods Donation</h2>
+<br />
+<br />
+<form method="post" asp-action="AddPurchase">
+
+    <div class="form-group">
+        <label for="disasterId">Select a Disaster:</label>
+        <select class="form-control" id="disasterId" asp-for="DisasterId">
+            <option value="">Select a Disaster</option>
+            @foreach (var disaster in Model.Disaster)
+            {
+                    <option value="@disaster.DisasterId">@disaster.DisasterName - @disaster.Location - @disaster.AidType</option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="DonationDate">Donation Date:</label>
+        <input type="date" class="form-control" id="DonationDate" asp-for="DonationDate" required>
+    </div>
+   
+
+    <!-- Number of Items -->
+    <div class="form-group">
+        <label for="NumberOfItems">Number of Items:</label>
+        <input type="number" class="form-control" id="NumberOfItems" asp-for="NumberOfItems" required>
+    </div>
+
+    <!-- Goods Category -->
+    <div class="form-group">
+        <label for="goodsCategory">Goods Category:</label>
+        <select class="form-control" id="goodsCategory" asp-for="goodsCategory" required>
+            <option value="Clothes">Clothes</option>
+            <option value="Water Provision">Water Provision</option>
+            <option value="Foods">Foods</option>
+
+
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="PhurchaseAmount">Purchase Amount:</label>
+        <input type="number" class="form-control" asp-for="PhurchaseAmount">
+    </div>
+
+    <br />
+    <!-- Submit Button -->
+    <button type="submit" class="btn btn-orange">Submit Donation</button>
+</form>
+    
+</body>
+</html>

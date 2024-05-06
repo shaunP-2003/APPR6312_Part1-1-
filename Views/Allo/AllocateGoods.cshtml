@@ -1,0 +1,38 @@
+﻿@model APPR6312_Part1_1_.Models.Views.DonationAllocationView
+
+
+@{
+}
+<h1 class="text-center" style="margin-top:80px">Allocate Goods</h1>
+<form method="post" asp-action="AllocateGoods">
+    <div class="form-group">
+        <label for="disasterId">Select a Disaster:</label>
+        <select class="form-control" id="disasterId" asp-for="DisasterId">
+            <option value="">Select a Disaster</option>
+            @foreach (var disaster in Model.DisastersView)
+            {
+                <option value="@disaster.DisasterId">@disaster.DisasterName</option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="goodsDonationId">Select Goods to Allocate:</label>
+
+        <select class="form-control" id="goodsDonationId" asp-for="goodDonationId">
+            <option value="">Select Goods Donation</option>
+            @foreach (var goods in Model.GoodsDonations)
+            {
+                <option value="@goods.goodDonationId">@goods.goodsCategory - @goods.NumberOfItems</option>
+            }
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Allocate Goods</button>
+</form>
+
+
+
+
+
+

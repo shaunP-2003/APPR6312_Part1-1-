@@ -1,0 +1,54 @@
+﻿@model APPR6312_Part1_1_.Models.Views.MonetaryDonoViewModel
+@{
+}
+<head>
+
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/APPR6312_Part1_1_.styles.css" asp-append-version="true" />
+    <style>
+        /* Custom orange button */
+        .btn-orange {
+            background-color: #FFA500; /* This is a shade of orange */
+            color: #fff; /* Text color (white) */
+            border-color: #FFA500; /* Border color */
+        }
+
+            /* Hover state for the button */
+            .btn-orange:hover {
+                background-color: #FF8C00; /* A slightly darker shade on hover */
+                border-color: #FF8C00;
+            }
+
+
+    </style>
+
+</head>
+<h2 class="text-center style="margin-top:80px"> Add Your Monetary Donation</h2>
+<br />
+<br />
+<form method="post" action="AddMoney">
+    <!-- Donation Date -->
+    <div class="form-group">
+        <label for="DonationDate">Donation Date:</label>
+        <input type="date" class="form-control" id="DonationDate" asp-for="DonationDate" required>
+    </div>
+
+    <div class="form-group">
+        <label for="Amount">Amount:</label>
+        <input type="number" step="0.01" class="form-control" id="Amount" asp-for="Amount" required>
+    </div>
+
+    <!-- Donor Name -->
+    <div class="form-group">
+        <label for="DonorName">Donor Name:</label>
+        <input type="text" class="form-control" id="DonorName" asp-for="DonorName" value="Anonymous" required>
+    </div>
+    <br
+    <!-- Submit Button -->
+    <button type="submit" class="btn btn-orange">Submit Donation</button>
+</form>
+@*//The following method was taken from youtube
+// Author: Sameer Saini
+//Link: https://youtu.be/2Cp8Ti_f9Gk?si=ve2zdqpPaGJ2rfVO*@

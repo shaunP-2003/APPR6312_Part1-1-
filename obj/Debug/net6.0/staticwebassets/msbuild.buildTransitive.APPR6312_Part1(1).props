@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\APPR6312_Part1(1).props" />
+</Project>

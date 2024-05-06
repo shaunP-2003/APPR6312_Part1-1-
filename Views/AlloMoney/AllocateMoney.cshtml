@@ -1,0 +1,32 @@
+﻿@model APPR6312_Part1_1_.Models.Views.DonoAllocationMoneyView
+
+
+@{
+}
+<h1 class="text-center" style="margin-top:80px">Allocate Money</h1>
+<form method="post" asp-action="AllocateMoney">
+    <div class="form-group">
+        <label for="disasterId">Select a Disaster:</label>
+        <select class="form-control" id="disasterId" asp-for="DisasterId">
+            <option value="">Select a Disaster</option>
+            @foreach (var disaster in Model.Disaster)
+            {
+                <option value="@disaster.DisasterId">@disaster.DisasterName - @disaster.Location - @disaster.AidType</option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="goodsDonationId">Select Monetary to Allocate:</label>
+
+        <select class="form-control" id="moneyDonationId" asp-for="MoneyDonationId">
+            <option value="">Select Monetary Donation</option>
+            @foreach (var money in Model.monetaryDonoViews)
+            {
+                <option value="@money.MoneyDonationId">@money.Amount - @money.DonationDate - @money.DonorName</option>
+            }
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Allocate Money</button>
+</form>

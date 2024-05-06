@@ -1,0 +1,69 @@
+﻿@model APPR6312_Part1_1_.Models.Views.GoodsDonoViewM
+@{
+}
+<head>
+    
+    
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/APPR6312_Part1_1_.styles.css" asp-append-version="true" />
+    <style>
+        /* Custom orange button */
+        .btn-orange {
+            background-color: #FFA500; /* This is a shade of orange */
+            color: #fff; /* Text color (white) */
+            border-color: #FFA500; /* Border color */
+        }
+
+            /* Hover state for the button */
+            .btn-orange:hover {
+                background-color: #FF8C00; /* A slightly darker shade on hover */
+                border-color: #FF8C00;
+            }
+
+
+    </style>
+
+</head>
+
+<h2 class="text-center style="margin-top:80px"> Add Your Goods Donation</h2><br /><br />
+<form method="post" action="AddGoods">
+    <!-- Donation Date -->
+    <div class="form-group">
+        <label for="DonationDate">Donation Date:</label>
+        <input type="date" class="form-control" id="DonationDate" asp-for="DonationDate" required>
+    </div>
+
+    <!-- Donor Name -->
+    <div class="form-group">
+        <label for="DonorName">Donor Name:</label>
+        <input type="text" class="form-control" id="DonorName" asp-for="DonorName" value="Anonymous" required>
+    </div>
+
+
+    <!-- Number of Items -->
+    <div class="form-group">
+        <label for="NumberOfItems">Number of Items:</label>
+        <input type="number" class="form-control" id="NumberOfItems" asp-for="NumberOfItems" required>
+    </div>
+
+    <!-- Goods Category -->
+    <div class="form-group">
+        <label for="goodsCategory">Goods Category:</label>
+        <select class="form-control" id="goodsCategory" asp-for="goodsCategory" required>
+            <option value="Clothes">Clothes</option>
+            <option value="Non-perishable foods">Non-perishable foods</option>
+            
+            
+        </select>
+    </div>
+
+    <!-- Description -->
+    <div class="form-group">
+        <label for="Description">Description:</label>
+        <textarea class="form-control" id="Description" asp-for="Description" rows="3" required></textarea>
+    </div>
+    <br />
+    <!-- Submit Button -->
+    <button type="submit" class="btn btn-orange">Submit Donation</button>
+</form>

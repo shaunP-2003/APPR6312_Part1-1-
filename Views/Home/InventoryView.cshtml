@@ -1,0 +1,35 @@
+﻿@model List<APPR6312_Part1_1_.Models.Domain.Inventory>
+@{
+}
+
+<h2 class="text-center" style="margin-top:80px" style="color: whitesmoke">All Goods Donation</h2>
+<br />
+<br />
+
+<table class="table table-striped-columns" style="color: whitesmoke">
+    <thead>
+        <tr>
+                <th>Donation Date</th>
+                <th>Number of Items</th>
+                <th>Goods Category</th>
+                <th>Purchase Amount</th>
+                
+
+        </tr>
+    </thead>
+    <tbody style="color: whitesmoke">
+        @foreach (var donation in Model)
+        {
+            <tr>
+                <td>@donation.DonationDate.ToShortDateString()</td>
+                <td>@donation.NumberOfItems</td>
+                <td>@donation.goodsCategory</td>
+                <td>@donation.PhurchaseAmount</td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h4 class="text-center" style="margin-top:80px" style="color: whitesmoke"> Available Money : @ViewData["availableMoney"]</h4>
+</div>

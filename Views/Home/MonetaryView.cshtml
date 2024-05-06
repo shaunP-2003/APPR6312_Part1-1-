@@ -1,0 +1,29 @@
+﻿@model List<APPR6312_Part1_1_.Models.Domain.MonetaryDonation>
+
+@{
+}
+<h2 class="text-center" style="margin-top:80px" style="color: whitesmoke">Monetary Donation</h2>
+<br />
+<br />
+<table class="table table-striped-columns" style="color: whitesmoke">
+    <thead>
+        <tr>
+            <th>Donation Date</th>
+            <th>Amount</th>
+            <th>Donor Name</th>
+        </tr>
+    </thead>
+    <tbody style="color: whitesmoke">
+        @foreach (var donation in Model)
+        {
+            <tr>
+                <td>@donation.DonationDate.ToShortDateString()</td>
+                <td>R @donation.Amount</td>
+                <td>@donation.DonorName</td>
+            </tr>
+        }
+    </tbody>
+</table>
+@*//The following method was taken from youtube
+// Author: Sameer Saini
+//Link: https://youtu.be/2Cp8Ti_f9Gk?si=ve2zdqpPaGJ2rfVO*@

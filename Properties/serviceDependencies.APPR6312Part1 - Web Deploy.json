@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "secretStore": "AzureAppSettings",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/dafappserver/databases/DAF_Database",
+      "type": "mssql.azure",
+      "connectionId": "ConnectionStrings:DefualtConnection"
+    }
+  }
+}

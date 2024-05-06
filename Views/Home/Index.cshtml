@@ -1,0 +1,66 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<head>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/APPR6312_Part1_1_.styles.css" asp-append-version="true" />
+
+    <style>
+        /* Custom orange button */
+        .btn-orange {
+            background-color: #FFA500; /* This is a shade of orange */
+            color: #fff; /* Text color (white) */
+            border-color: #FFA500; /* Border color */
+        }
+
+            /* Hover state for the button */
+            .btn-orange:hover {
+                background-color: #FF8C00; /* A slightly darker shade on hover */
+                border-color: #FF8C00;
+            }
+
+
+    </style>
+
+
+</head>
+<div class="container mt-5">
+    <h2 class="text-center" style="margin-top: 130px">Welcome to Disaster Relief Foundation</h2><br /><br />
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <a asp-controller="Home" asp-action="DisasterView" class="btn btn-orange btn-lg btn-block w-100">
+                View Disasters
+            </a>
+        </div>
+        <div class="col-md-4 mb-3">
+            <a asp-controller="Home" asp-action="GoodsDonoView" class="btn btn-orange btn-lg btn-block w-100">
+                View Goods Donations
+            </a>
+        </div>
+        <div class="col-md-4 mb-3">
+            <a asp-controller="Home" asp-action="MonetaryView" class="btn btn-orange btn-lg btn-block w-100">
+                View Monetary Donations
+            </a>
+        </div>
+       
+        <div class="col-md-4 mb-3">
+            <a asp-controller="Home" asp-action="InventoryView" class="btn btn-orange btn-lg btn-block w-100">
+                View Inventory
+            </a>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <a asp-controller="Inventory" asp-action="AddPurchase" class="btn btn-orange btn-lg btn-block w-100">
+                Purchase Goods
+            </a>
+        </div>
+           
+
+    </div>
+</div>
+
+
+
